@@ -1,7 +1,11 @@
 aid: bjs-wholesale-club
-url: https://raw.githubusercontent.com/api-evangelist/bjs-wholesale-club/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/bjs-wholesale-club/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.bjs-wholesale-club.com
+description: >-
+  BJ's Wholesale Club is a leading operator of membership warehouse clubs concentrated
+  primarily on the eastern half of the United States.
