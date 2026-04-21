@@ -1,0 +1,16 @@
+{
+  "productId": "PROD-78234",
+  "name": "Kirkland Signature Organic Extra Virgin Olive Oil 2L",
+  "description": "Cold pressed, certified organic extra virgin olive oil. 2-liter bottle.",
+  "brand": "Wellsley Farms",
+  "category": "Pantry",
+  "subcategory": "Oils & Vinegars",
+  "price": 14.99,
+  "regularPrice": 21.99,
+  "unit": "2L bottle",
+  "images": [
+    "https://cdn.bjs.com/images/products/PROD-78234-main.jpg"
+  ],
+  "memberExclusive": true,
+  "inStock": true
+}

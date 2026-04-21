@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "bjs": "https://www.bjs.com/ontology/",
+    "productId": "identifier",
+    "membershipNumber": "bjs:membershipNumber",
+    "tier": "bjs:membershipTier",
+    "inStock": "https://schema.org/availability",
+    "price": "https://schema.org/price",
+    "regularPrice": "https://schema.org/highPrice",
+    "brand": "https://schema.org/brand",
+    "category": "https://schema.org/category",
+    "orderId": "https://schema.org/orderNumber",
+    "status": "https://schema.org/orderStatus",
+    "estimatedDelivery": "https://schema.org/expectedArrivalUntil",
+    "clubId": "bjs:clubId",
+    "fulfillmentMethod": "bjs:fulfillmentMethod"
+  }
+}

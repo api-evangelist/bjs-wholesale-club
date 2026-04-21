@@ -1,0 +1,11 @@
+{
+  "name": "BJS Membership Structure",
+  "description": "JSON structure definition for a BJ's Wholesale Club membership",
+  "fields": [
+    { "name": "membershipNumber", "type": "string", "required": true },
+    { "name": "status", "type": "enum[active,expired,suspended]", "required": true },
+    { "name": "tier", "type": "enum[inner_circle,inner_circle_gold,business]", "required": true },
+    { "name": "expirationDate", "type": "date", "required": true },
+    { "name": "primaryMember", "type": "string", "required": false }
+  ]
+}

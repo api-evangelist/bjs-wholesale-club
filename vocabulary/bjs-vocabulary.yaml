@@ -1,0 +1,41 @@
+name: BJ's Wholesale Club API Vocabulary
+description: Key terms and concepts used in the BJ's Wholesale Club partner API
+terms:
+  - term: Inner Circle
+    definition: >-
+      BJ's standard membership tier granting access to member pricing,
+      BJ's gas stations, and exclusive savings events.
+  - term: Inner Circle Gold
+    definition: >-
+      BJ's premium membership tier providing 2% cash back rewards on most
+      BJ's purchases in addition to standard Inner Circle benefits.
+  - term: Business Membership
+    definition: >-
+      BJ's membership tier for businesses and tax-exempt organizations,
+      offering bulk purchasing and tax-exempt checkout.
+  - term: Club
+    definition: >-
+      A BJ's Wholesale Club physical warehouse store location. BJ's operates
+      over 230 clubs primarily on the eastern United States.
+  - term: Curbside Pickup
+    definition: >-
+      Buy Online, Pick Up In Club (BOPIC) service allowing members to order
+      online and collect their order at the club entrance.
+  - term: Member Price
+    definition: >-
+      The discounted price available exclusively to BJ's members, as opposed
+      to the regular retail price for non-members.
+  - term: Wellsley Farms
+    definition: >-
+      BJ's private label brand for grocery, produce, and food products.
+  - term: Berkley Jensen
+    definition: >-
+      BJ's private label brand for household, health, and general merchandise products.
+  - term: Gas Station
+    definition: >-
+      BJ's fuel station available at many club locations offering member-discounted
+      fuel pricing.
+  - term: Product Feed
+    definition: >-
+      A structured data export of BJ's product catalog used for affiliate
+      and comparison shopping integrations.

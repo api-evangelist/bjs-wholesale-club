@@ -1,0 +1,24 @@
+{
+  "orderId": "ORD-20260421-00123",
+  "status": "confirmed",
+  "membershipNumber": "8001234567890",
+  "items": [
+    {
+      "productId": "PROD-78234",
+      "name": "Wellsley Farms Organic Extra Virgin Olive Oil 2L",
+      "quantity": 2,
+      "unitPrice": 14.99
+    },
+    {
+      "productId": "PROD-55102",
+      "name": "Berkley Jensen Paper Towels 12-Pack",
+      "quantity": 1,
+      "unitPrice": 22.99
+    }
+  ],
+  "subtotal": 52.97,
+  "tax": 3.71,
+  "total": 56.68,
+  "createdAt": "2026-04-21T10:30:00Z",
+  "estimatedDelivery": "2026-04-24"
+}

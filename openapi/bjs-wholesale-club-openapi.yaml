@@ -1,0 +1,443 @@
+openapi: 3.0.3
+info:
+  title: BJ's Wholesale Club Partner API
+  description: >-
+    BJ's Wholesale Club partner and affiliate integration API providing access to
+    product catalog, pricing, inventory availability, membership verification, and
+    order management capabilities. Available through BJ's partner program.
+  version: 1.0.0
+  contact:
+    name: BJ's Wholesale Club Partner Support
+    url: https://www.bjs.com/content/help-center
+  termsOfService: https://www.bjs.com/content/terms-and-conditions
+servers:
+  - url: https://api.bjs.com/v1
+    description: Production
+paths:
+  /products:
+    get:
+      operationId: listProducts
+      summary: List Products
+      description: Returns a paginated list of products from the BJ's catalog.
+      tags:
+        - Products
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+          description: Filter by category name or ID
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+            maximum: 200
+      responses:
+        '200':
+          description: Successful product list response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      security:
+        - ApiKeyAuth: []
+  /products/{productId}:
+    get:
+      operationId: getProduct
+      summary: Get Product
+      description: Returns details for a specific product by ID.
+      tags:
+        - Products
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product detail response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - ApiKeyAuth: []
+  /products/{productId}/inventory:
+    get:
+      operationId: getProductInventory
+      summary: Get Product Inventory
+      description: Returns inventory availability for a product across club locations.
+      tags:
+        - Inventory
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clubId
+          in: query
+          schema:
+            type: string
+          description: Filter to a specific club location
+      responses:
+        '200':
+          description: Inventory availability response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventoryStatus'
+      security:
+        - ApiKeyAuth: []
+  /membership/verify:
+    post:
+      operationId: verifyMembership
+      summary: Verify Membership
+      description: Verifies a BJ's membership number and returns status and tier.
+      tags:
+        - Membership
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MembershipVerifyRequest'
+      responses:
+        '200':
+          description: Membership verification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MembershipStatus'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - ApiKeyAuth: []
+  /orders:
+    post:
+      operationId: createOrder
+      summary: Create Order
+      description: Creates a new order through BJ's digital commerce platform.
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      security:
+        - ApiKeyAuth: []
+  /orders/{orderId}:
+    get:
+      operationId: getOrder
+      summary: Get Order
+      description: Returns details and status for a specific order.
+      tags:
+        - Orders
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order detail response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - ApiKeyAuth: []
+  /clubs:
+    get:
+      operationId: listClubs
+      summary: List Club Locations
+      description: Returns a list of BJ's Wholesale Club locations with address and hours.
+      tags:
+        - Clubs
+      parameters:
+        - name: zip
+          in: query
+          schema:
+            type: string
+          description: Filter clubs by proximity to ZIP code
+        - name: radius
+          in: query
+          schema:
+            type: integer
+            default: 25
+          description: Radius in miles for ZIP-based search
+      responses:
+        '200':
+          description: List of club locations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClubList'
+      security:
+        - ApiKeyAuth: []
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BJS-API-Key
+  schemas:
+    Product:
+      type: object
+      properties:
+        productId:
+          type: string
+          description: Unique product identifier
+        name:
+          type: string
+          description: Product name
+        description:
+          type: string
+          description: Product description
+        brand:
+          type: string
+        category:
+          type: string
+        subcategory:
+          type: string
+        price:
+          type: number
+          format: float
+          description: Member price in USD
+        regularPrice:
+          type: number
+          format: float
+          description: Regular retail price
+        unit:
+          type: string
+          description: Unit of measure (e.g., "each", "per lb", "pack of 24")
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+        memberExclusive:
+          type: boolean
+          description: True if product requires active membership to purchase
+        inStock:
+          type: boolean
+    ProductList:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+    InventoryStatus:
+      type: object
+      properties:
+        productId:
+          type: string
+        locations:
+          type: array
+          items:
+            type: object
+            properties:
+              clubId:
+                type: string
+              clubName:
+                type: string
+              available:
+                type: boolean
+              quantityOnHand:
+                type: integer
+    MembershipVerifyRequest:
+      type: object
+      required:
+        - membershipNumber
+      properties:
+        membershipNumber:
+          type: string
+          description: BJ's membership card number
+        lastName:
+          type: string
+    MembershipStatus:
+      type: object
+      properties:
+        membershipNumber:
+          type: string
+        status:
+          type: string
+          enum: [active, expired, suspended]
+        tier:
+          type: string
+          enum: [inner_circle, inner_circle_gold, business]
+        expirationDate:
+          type: string
+          format: date
+        primaryMember:
+          type: string
+    OrderRequest:
+      type: object
+      required:
+        - membershipNumber
+        - items
+        - shippingAddress
+      properties:
+        membershipNumber:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+              quantity:
+                type: integer
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        fulfillmentMethod:
+          type: string
+          enum: [ship, curbside_pickup, in_club]
+        clubId:
+          type: string
+          description: Required for curbside_pickup and in_club fulfillment
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+          enum: [pending, confirmed, processing, shipped, delivered, cancelled]
+        membershipNumber:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+              name:
+                type: string
+              quantity:
+                type: integer
+              unitPrice:
+                type: number
+        subtotal:
+          type: number
+        tax:
+          type: number
+        total:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+        estimatedDelivery:
+          type: string
+          format: date
+    Club:
+      type: object
+      properties:
+        clubId:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        phone:
+          type: string
+        hours:
+          type: object
+          additionalProperties:
+            type: string
+        services:
+          type: array
+          items:
+            type: string
+          description: Services available (e.g., optical, tire center, gas station)
+    ClubList:
+      type: object
+      properties:
+        clubs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Club'
+        total:
+          type: integer
+    Address:
+      type: object
+      properties:
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+          default: US
+  responses:
+    Unauthorized:
+      description: API key missing or invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              details:
+                type: array
+                items:
+                  type: string

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/bjs-wholesale-club/main/json-schema/bjs-membership-schema.json",
+  "title": "BJS Membership",
+  "description": "Schema for a BJ's Wholesale Club membership record",
+  "type": "object",
+  "properties": {
+    "membershipNumber": {
+      "type": "string",
+      "description": "BJ's membership card number"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "expired", "suspended"],
+      "description": "Current membership status"
+    },
+    "tier": {
+      "type": "string",
+      "enum": ["inner_circle", "inner_circle_gold", "business"],
+      "description": "Membership tier level"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Membership expiration date"
+    },
+    "primaryMember": {
+      "type": "string",
+      "description": "Name of the primary account holder"
+    }
+  },
+  "required": ["membershipNumber", "status", "tier", "expirationDate"]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "BJS Order Structure",
+  "description": "JSON structure definition for a BJ's Wholesale Club order",
+  "fields": [
+    { "name": "orderId", "type": "string", "required": true },
+    { "name": "status", "type": "enum[pending,confirmed,processing,shipped,delivered,cancelled]", "required": true },
+    { "name": "membershipNumber", "type": "string", "required": true },
+    { "name": "items", "type": "array<OrderItem>", "required": true },
+    { "name": "subtotal", "type": "number", "required": false },
+    { "name": "tax", "type": "number", "required": false },
+    { "name": "total", "type": "number", "required": true },
+    { "name": "createdAt", "type": "datetime", "required": false },
+    { "name": "estimatedDelivery", "type": "date", "required": false }
+  ]
+}

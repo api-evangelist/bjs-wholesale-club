@@ -1,0 +1,61 @@
+name: BJ's Wholesale Club Partner API Capability
+description: >-
+  Naftiko capability definition for BJ's Wholesale Club partner API providing
+  product catalog, membership verification, inventory, and order management.
+version: 1.0.0
+capabilities:
+  - name: listProducts
+    description: Retrieve paginated product catalog with pricing and availability
+    method: GET
+    path: /products
+    parameters:
+      - name: category
+        type: string
+        required: false
+      - name: page
+        type: integer
+        required: false
+      - name: limit
+        type: integer
+        required: false
+  - name: getProduct
+    description: Retrieve details for a specific product by ID
+    method: GET
+    path: /products/{productId}
+    parameters:
+      - name: productId
+        type: string
+        required: true
+  - name: getProductInventory
+    description: Check inventory availability across club locations
+    method: GET
+    path: /products/{productId}/inventory
+    parameters:
+      - name: productId
+        type: string
+        required: true
+      - name: clubId
+        type: string
+        required: false
+  - name: verifyMembership
+    description: Verify BJ's membership number and return status and tier
+    method: POST
+    path: /membership/verify
+    body:
+      membershipNumber: string
+      lastName: string
+  - name: createOrder
+    description: Create a new order through BJ's digital commerce platform
+    method: POST
+    path: /orders
+  - name: getOrder
+    description: Retrieve status and details for a specific order
+    method: GET
+    path: /orders/{orderId}
+  - name: listClubs
+    description: List BJ's club locations with address, hours, and services
+    method: GET
+    path: /clubs
+authentication:
+  type: apiKey
+  header: X-BJS-API-Key

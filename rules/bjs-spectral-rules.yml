@@ -1,0 +1,47 @@
+rules:
+  bjs-membership-number-required:
+    description: Orders and membership verifications must include a membershipNumber
+    message: "{{description}}"
+    given: "$.paths['/membership/verify'].post.requestBody.content['application/json'].schema"
+    then:
+      field: required
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            const: membershipNumber
+
+  bjs-order-status-enum:
+    description: Order status must be one of the defined enum values
+    message: "Order status field must use defined enum values"
+    given: "$.components.schemas.Order.properties.status"
+    then:
+      field: enum
+      function: truthy
+
+  bjs-product-price-positive:
+    description: Product price must be defined as a number type
+    message: "Product price must be a numeric type"
+    given: "$.components.schemas.Product.properties.price"
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "^number$"
+
+  bjs-api-key-security:
+    description: All endpoints must use ApiKeyAuth security scheme
+    message: "Endpoint must specify ApiKeyAuth security"
+    given: "$.paths[*][*]"
+    then:
+      field: security
+      function: truthy
+
+  bjs-operations-have-tags:
+    description: All operations should have at least one tag
+    message: "Operation must include at least one tag"
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy

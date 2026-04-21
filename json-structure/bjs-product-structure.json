@@ -1,0 +1,18 @@
+{
+  "name": "BJS Product Structure",
+  "description": "JSON structure definition for a BJ's Wholesale Club product",
+  "fields": [
+    { "name": "productId", "type": "string", "required": true },
+    { "name": "name", "type": "string", "required": true },
+    { "name": "description", "type": "string", "required": false },
+    { "name": "brand", "type": "string", "required": false },
+    { "name": "category", "type": "string", "required": false },
+    { "name": "subcategory", "type": "string", "required": false },
+    { "name": "price", "type": "number", "required": true, "description": "Member price in USD" },
+    { "name": "regularPrice", "type": "number", "required": false },
+    { "name": "unit", "type": "string", "required": false },
+    { "name": "images", "type": "array<string>", "required": false },
+    { "name": "memberExclusive", "type": "boolean", "required": false },
+    { "name": "inStock", "type": "boolean", "required": false }
+  ]
+}
