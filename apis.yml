@@ -1,11 +1,103 @@
 aid: bjs-wholesale-club
-url: 
+url: >-
   https://raw.githubusercontent.com/api-evangelist/bjs-wholesale-club/refs/heads/main/apis.yml
-modified: '2026-03-21'
-apis: []
-common:
-  - type: Website
-    url: https://www.bjs-wholesale-club.com
+name: BJ's Wholesale Club
 description: >-
   BJ's Wholesale Club is a leading operator of membership warehouse clubs concentrated
-  primarily on the eastern half of the United States.
+  primarily on the eastern half of the United States. BJ's offers its members significant
+  savings on a wide assortment of merchandise, including fresh foods, groceries, household
+  essentials, and general merchandise. The company operates over 230 clubs and is focused
+  on digital transformation, offering APIs to partners for product data, inventory, pricing,
+  and order management integrations.
+tags:
+  - Ecommerce
+  - Membership
+  - Retail
+  - Wholesale
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+created: '2026-03-21'
+modified: '2026-04-19'
+specificationVersion: '0.19'
+apis:
+  - aid: bjs-wholesale-club:bjs-wholesale-club
+    name: BJ's Wholesale Club API
+    description: >-
+      BJ's Wholesale Club provides partner and affiliate integrations enabling access
+      to product catalog, pricing, inventory availability, membership verification,
+      and order management capabilities. Integrations are available through their
+      partner program and digital commerce platform.
+    humanURL: https://www.bjs.com
+    tags:
+      - Ecommerce
+      - Membership
+      - Retail
+      - Wholesale
+    properties:
+      - type: Documentation
+        url: https://www.bjs.com
+      - type: PrivacyPolicy
+        url: https://www.bjs.com/content/privacy-policy
+      - type: TermsOfService
+        url: https://www.bjs.com/content/terms-and-conditions
+common:
+  - type: Website
+    url: https://www.bjs.com
+  - type: PrivacyPolicy
+    url: https://www.bjs.com/content/privacy-policy
+  - type: TermsOfService
+    url: https://www.bjs.com/content/terms-and-conditions
+  - type: SignUp
+    url: https://www.bjs.com/content/membership
+  - type: Support
+    url: https://www.bjs.com/content/help-center
+  - type: Features
+    data:
+      - name: Membership Management
+        description: >-
+          Supports membership-based access model for in-club and online purchasing,
+          including membership verification and renewal.
+      - name: Product Catalog
+        description: >-
+          Broad product assortment including fresh foods, groceries, household
+          essentials, electronics, and general merchandise available via digital
+          commerce integrations.
+      - name: Digital Commerce
+        description: >-
+          Online ordering and delivery capabilities integrating with BJ's digital
+          platform for partner fulfillment and affiliate programs.
+      - name: Curbside Pickup
+        description: >-
+          Buy Online, Pick Up In Club capabilities available through BJ's digital
+          platform for member convenience.
+  - type: UseCases
+    data:
+      - name: Affiliate Marketing
+        description: >-
+          Partner programs enabling affiliate marketers to promote BJ's membership
+          and products with commission-based compensation.
+      - name: Product Data Integration
+        description: >-
+          Access product catalog and pricing data to enable comparison shopping
+          and product listing integrations.
+      - name: Membership Verification
+        description: >-
+          Verify BJ's membership status for partner benefits and co-branded
+          programs.
+      - name: Order Management
+        description: >-
+          Manage orders through BJ's digital commerce platform for dropship
+          and fulfillment partnerships.
+  - type: Integrations
+    data:
+      - name: Commission Junction
+        description: >-
+          BJ's affiliate program is managed through CJ Affiliate (Commission Junction)
+          for tracking and payments.
+      - name: Google Shopping
+        description: >-
+          Product feeds integrated with Google Shopping for product discovery
+          and advertising.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
