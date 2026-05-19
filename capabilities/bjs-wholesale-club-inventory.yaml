@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: BJ's Wholesale Club Partner API — Inventory
+  description: 'BJ''s Wholesale Club Partner API — Inventory. 1 operations. Lead operation: Get Product Inventory. Self-contained
+    Naftiko capability covering one Bjs Wholesale Club business surface.'
+  tags:
+  - Bjs Wholesale Club
+  - Inventory
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    BJS_WHOLESALE_CLUB_API_KEY: BJS_WHOLESALE_CLUB_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bjs-wholesale-club-inventory
+    baseUri: https://api.bjs.com/v1
+    description: BJ's Wholesale Club Partner API — Inventory business capability. Self-contained, no shared references.
+    resources:
+    - name: products-productId-inventory
+      path: /products/{productId}/inventory
+      operations:
+      - name: getproductinventory
+        method: GET
+        description: Get Product Inventory
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: productId
+          in: path
+          type: string
+          required: true
+        - name: clubId
+          in: query
+          type: string
+          description: Filter to a specific club location
+    authentication:
+      type: apikey
+      key: X-BJS-API-Key
+      value: '{{env.BJS_WHOLESALE_CLUB_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: bjs-wholesale-club-inventory-rest
+    port: 8080
+    description: REST adapter for BJ's Wholesale Club Partner API — Inventory. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/products/{productid}/inventory
+      name: products-productid-inventory
+      description: REST surface for products-productId-inventory.
+      operations:
+      - method: GET
+        name: getproductinventory
+        description: Get Product Inventory
+        call: bjs-wholesale-club-inventory.getproductinventory
+        with:
+          productId: rest.productId
+          clubId: rest.clubId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bjs-wholesale-club-inventory-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for BJ's Wholesale Club Partner API — Inventory. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-product-inventory
+      description: Get Product Inventory
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: bjs-wholesale-club-inventory.getproductinventory
+      with:
+        productId: tools.productId
+        clubId: tools.clubId
+      outputParameters:
+      - type: object
+        mapping: $.
