@@ -46,25 +46,25 @@ apis:
     url: json-structure/bjs-order-structure.json
   - type: JSONLD
     url: json-ld/bjs-context.jsonld
-  - type: Example
+  - type: Examples
     url: examples/bjs-product-example.json
-  - type: Example
+  - type: Examples
     url: examples/bjs-membership-example.json
-  - type: Example
+  - type: Examples
     url: examples/bjs-order-example.json
   - type: PrivacyPolicy
     url: https://www.bjs.com/content/privacy-policy
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/bjs-wholesale-club-clubs.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/bjs-wholesale-club-inventory.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/bjs-wholesale-club-membership.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/bjs-wholesale-club-orders.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/bjs-wholesale-club-products.yaml
 common:
 - type: Website
@@ -73,7 +73,7 @@ common:
   url: https://www.bjs.com/content/privacy-policy
 - type: TermsOfService
   url: https://www.bjs.com/content/terms-and-conditions
-- type: SignUp
+- type: Signup
   url: https://www.bjs.com/content/membership
 - type: Support
   url: https://www.bjs.com/content/help-center
