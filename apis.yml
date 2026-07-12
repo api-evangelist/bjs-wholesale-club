@@ -67,6 +67,10 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/bjs-wholesale-club-products.yaml
 common:
+- type: DomainSecurity
+  url: security/bjs-wholesale-club-domain-security.yml
+- type: Authentication
+  url: authentication/bjs-wholesale-club-authentication.yml
 - type: Website
   url: https://www.bjs.com
 - type: PrivacyPolicy
