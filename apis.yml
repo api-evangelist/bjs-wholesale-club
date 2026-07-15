@@ -67,6 +67,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/bjs-wholesale-club-products.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/bjs-wholesale-club-agentic-access.yml
 - type: DomainSecurity
   url: security/bjs-wholesale-club-domain-security.yml
 - type: Authentication
