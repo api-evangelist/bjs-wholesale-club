@@ -1,0 +1,152 @@
+openapi: 3.0.3
+info:
+  title: BJ's Wholesale Club Partner Clubs Products API
+  description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
+  version: 1.0.0
+  contact:
+    name: BJ's Wholesale Club Partner Support
+    url: https://www.bjs.com/content/help-center
+  termsOfService: https://www.bjs.com/content/terms-and-conditions
+servers:
+- url: https://api.bjs.com/v1
+  description: Production
+tags:
+- name: Products
+paths:
+  /products:
+    get:
+      operationId: listProducts
+      summary: List Products
+      description: Returns a paginated list of products from the BJ's catalog.
+      tags:
+      - Products
+      parameters:
+      - name: category
+        in: query
+        schema:
+          type: string
+        description: Filter by category name or ID
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 50
+          maximum: 200
+      responses:
+        '200':
+          description: Successful product list response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      security:
+      - ApiKeyAuth: []
+  /products/{productId}:
+    get:
+      operationId: getProduct
+      summary: Get Product
+      description: Returns details for a specific product by ID.
+      tags:
+      - Products
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Product detail response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+      - ApiKeyAuth: []
+components:
+  responses:
+    Unauthorized:
+      description: API key missing or invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  schemas:
+    Product:
+      type: object
+      properties:
+        productId:
+          type: string
+          description: Unique product identifier
+        name:
+          type: string
+          description: Product name
+        description:
+          type: string
+          description: Product description
+        brand:
+          type: string
+        category:
+          type: string
+        subcategory:
+          type: string
+        price:
+          type: number
+          format: float
+          description: Member price in USD
+        regularPrice:
+          type: number
+          format: float
+          description: Regular retail price
+        unit:
+          type: string
+          description: Unit of measure (e.g., "each", "per lb", "pack of 24")
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+        memberExclusive:
+          type: boolean
+          description: True if product requires active membership to purchase
+        inStock:
+          type: boolean
+    ProductList:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BJS-API-Key

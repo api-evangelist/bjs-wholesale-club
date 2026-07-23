@@ -1,0 +1,88 @@
+openapi: 3.0.3
+info:
+  title: BJ's Wholesale Club Partner Clubs Membership API
+  description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
+  version: 1.0.0
+  contact:
+    name: BJ's Wholesale Club Partner Support
+    url: https://www.bjs.com/content/help-center
+  termsOfService: https://www.bjs.com/content/terms-and-conditions
+servers:
+- url: https://api.bjs.com/v1
+  description: Production
+tags:
+- name: Membership
+paths:
+  /membership/verify:
+    post:
+      operationId: verifyMembership
+      summary: Verify Membership
+      description: Verifies a BJ's membership number and returns status and tier.
+      tags:
+      - Membership
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MembershipVerifyRequest'
+      responses:
+        '200':
+          description: Membership verification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MembershipStatus'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    MembershipStatus:
+      type: object
+      properties:
+        membershipNumber:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - expired
+          - suspended
+        tier:
+          type: string
+          enum:
+          - inner_circle
+          - inner_circle_gold
+          - business
+        expirationDate:
+          type: string
+          format: date
+        primaryMember:
+          type: string
+    MembershipVerifyRequest:
+      type: object
+      required:
+      - membershipNumber
+      properties:
+        membershipNumber:
+          type: string
+          description: BJ's membership card number
+        lastName:
+          type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BJS-API-Key

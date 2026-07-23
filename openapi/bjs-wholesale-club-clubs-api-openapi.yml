@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  title: BJ's Wholesale Club Partner Clubs API
+  description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
+  version: 1.0.0
+  contact:
+    name: BJ's Wholesale Club Partner Support
+    url: https://www.bjs.com/content/help-center
+  termsOfService: https://www.bjs.com/content/terms-and-conditions
+servers:
+- url: https://api.bjs.com/v1
+  description: Production
+tags:
+- name: Clubs
+paths:
+  /clubs:
+    get:
+      operationId: listClubs
+      summary: List Club Locations
+      description: Returns a list of BJ's Wholesale Club locations with address and hours.
+      tags:
+      - Clubs
+      parameters:
+      - name: zip
+        in: query
+        schema:
+          type: string
+        description: Filter clubs by proximity to ZIP code
+      - name: radius
+        in: query
+        schema:
+          type: integer
+          default: 25
+        description: Radius in miles for ZIP-based search
+      responses:
+        '200':
+          description: List of club locations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClubList'
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    ClubList:
+      type: object
+      properties:
+        clubs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Club'
+        total:
+          type: integer
+    Club:
+      type: object
+      properties:
+        clubId:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        phone:
+          type: string
+        hours:
+          type: object
+          additionalProperties:
+            type: string
+        services:
+          type: array
+          items:
+            type: string
+          description: Services available (e.g., optical, tire center, gas station)
+    Address:
+      type: object
+      properties:
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+          default: US
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BJS-API-Key

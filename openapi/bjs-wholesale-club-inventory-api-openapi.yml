@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: BJ's Wholesale Club Partner Clubs Inventory API
+  description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
+  version: 1.0.0
+  contact:
+    name: BJ's Wholesale Club Partner Support
+    url: https://www.bjs.com/content/help-center
+  termsOfService: https://www.bjs.com/content/terms-and-conditions
+servers:
+- url: https://api.bjs.com/v1
+  description: Production
+tags:
+- name: Inventory
+paths:
+  /products/{productId}/inventory:
+    get:
+      operationId: getProductInventory
+      summary: Get Product Inventory
+      description: Returns inventory availability for a product across club locations.
+      tags:
+      - Inventory
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: clubId
+        in: query
+        schema:
+          type: string
+        description: Filter to a specific club location
+      responses:
+        '200':
+          description: Inventory availability response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventoryStatus'
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    InventoryStatus:
+      type: object
+      properties:
+        productId:
+          type: string
+        locations:
+          type: array
+          items:
+            type: object
+            properties:
+              clubId:
+                type: string
+              clubName:
+                type: string
+              available:
+                type: boolean
+              quantityOnHand:
+                type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BJS-API-Key

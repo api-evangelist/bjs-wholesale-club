@@ -1,0 +1,179 @@
+openapi: 3.0.3
+info:
+  title: BJ's Wholesale Club Partner Clubs Orders API
+  description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
+  version: 1.0.0
+  contact:
+    name: BJ's Wholesale Club Partner Support
+    url: https://www.bjs.com/content/help-center
+  termsOfService: https://www.bjs.com/content/terms-and-conditions
+servers:
+- url: https://api.bjs.com/v1
+  description: Production
+tags:
+- name: Orders
+paths:
+  /orders:
+    post:
+      operationId: createOrder
+      summary: Create Order
+      description: Creates a new order through BJ's digital commerce platform.
+      tags:
+      - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      security:
+      - ApiKeyAuth: []
+  /orders/{orderId}:
+    get:
+      operationId: getOrder
+      summary: Get Order
+      description: Returns details and status for a specific order.
+      tags:
+      - Orders
+      parameters:
+      - name: orderId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Order detail response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+      - ApiKeyAuth: []
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+          default: US
+    OrderRequest:
+      type: object
+      required:
+      - membershipNumber
+      - items
+      - shippingAddress
+      properties:
+        membershipNumber:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+              quantity:
+                type: integer
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        fulfillmentMethod:
+          type: string
+          enum:
+          - ship
+          - curbside_pickup
+          - in_club
+        clubId:
+          type: string
+          description: Required for curbside_pickup and in_club fulfillment
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - confirmed
+          - processing
+          - shipped
+          - delivered
+          - cancelled
+        membershipNumber:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+              name:
+                type: string
+              quantity:
+                type: integer
+              unitPrice:
+                type: number
+        subtotal:
+          type: number
+        tax:
+          type: number
+        total:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+        estimatedDelivery:
+          type: string
+          format: date
+  responses:
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              details:
+                type: array
+                items:
+                  type: string
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-BJS-API-Key
