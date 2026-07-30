@@ -11,27 +11,215 @@ tags:
 - Retail
 - Wholesale
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bjs-wholesale-club.png
 created: '2026-03-21'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: bjs-wholesale-club:bjs-wholesale-club
-  name: BJ's Wholesale Club API
-  description: BJ's Wholesale Club provides partner and affiliate integrations enabling access to product catalog, pricing,
-    inventory availability, membership verification, and order management capabilities. Integrations are available through
-    their partner program and digital commerce platform.
+- aid: bjs-wholesale-club:bjs-wholesale-club-clubs-api
+  name: BJ's Wholesale Club Clubs API
+  description: The Clubs API from BJ's Wholesale Club — 1 operation(s) for clubs.
   humanURL: https://www.bjs.com
   tags:
-  - Ecommerce
-  - Membership
-  - Retail
-  - Wholesale
+  - Clubs
   properties:
+  - type: OpenAPI
+    url: openapi/bjs-wholesale-club-clubs-api-openapi.yml
   - type: Documentation
     url: https://www.bjs.com
+  - type: JSONSchema
+    url: json-schema/bjs-product-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-membership-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-order-schema.json
+  - type: JSONStructure
+    url: json-structure/bjs-product-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-membership-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-order-structure.json
+  - type: JSONLD
+    url: json-ld/bjs-context.jsonld
+  - type: Examples
+    url: examples/bjs-product-example.json
+  - type: Examples
+    url: examples/bjs-membership-example.json
+  - type: Examples
+    url: examples/bjs-order-example.json
+  - type: PrivacyPolicy
+    url: https://www.bjs.com/content/privacy-policy
+  - type: TermsOfService
+    url: https://www.bjs.com/content/terms-and-conditions
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-clubs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-membership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-orders.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-products.yaml
+- aid: bjs-wholesale-club:bjs-wholesale-club-inventory-api
+  name: BJ's Wholesale Club Inventory API
+  description: The Inventory API from BJ's Wholesale Club — 1 operation(s) for inventory.
+  humanURL: https://www.bjs.com
+  tags:
+  - Inventory
+  properties:
   - type: OpenAPI
-    url: openapi/bjs-wholesale-club-openapi.yaml
+    url: openapi/bjs-wholesale-club-inventory-api-openapi.yml
+  - type: Documentation
+    url: https://www.bjs.com
+  - type: JSONSchema
+    url: json-schema/bjs-product-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-membership-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-order-schema.json
+  - type: JSONStructure
+    url: json-structure/bjs-product-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-membership-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-order-structure.json
+  - type: JSONLD
+    url: json-ld/bjs-context.jsonld
+  - type: Examples
+    url: examples/bjs-product-example.json
+  - type: Examples
+    url: examples/bjs-membership-example.json
+  - type: Examples
+    url: examples/bjs-order-example.json
+  - type: PrivacyPolicy
+    url: https://www.bjs.com/content/privacy-policy
+  - type: TermsOfService
+    url: https://www.bjs.com/content/terms-and-conditions
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-clubs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-membership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-orders.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-products.yaml
+- aid: bjs-wholesale-club:bjs-wholesale-club-membership-api
+  name: BJ's Wholesale Club Membership API
+  description: The Membership API from BJ's Wholesale Club — 1 operation(s) for membership.
+  humanURL: https://www.bjs.com
+  tags:
+  - Membership
+  properties:
+  - type: OpenAPI
+    url: openapi/bjs-wholesale-club-membership-api-openapi.yml
+  - type: Documentation
+    url: https://www.bjs.com
+  - type: JSONSchema
+    url: json-schema/bjs-product-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-membership-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-order-schema.json
+  - type: JSONStructure
+    url: json-structure/bjs-product-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-membership-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-order-structure.json
+  - type: JSONLD
+    url: json-ld/bjs-context.jsonld
+  - type: Examples
+    url: examples/bjs-product-example.json
+  - type: Examples
+    url: examples/bjs-membership-example.json
+  - type: Examples
+    url: examples/bjs-order-example.json
+  - type: PrivacyPolicy
+    url: https://www.bjs.com/content/privacy-policy
+  - type: TermsOfService
+    url: https://www.bjs.com/content/terms-and-conditions
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-clubs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-membership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-orders.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-products.yaml
+- aid: bjs-wholesale-club:bjs-wholesale-club-orders-api
+  name: BJ's Wholesale Club Orders API
+  description: The Orders API from BJ's Wholesale Club — 2 operation(s) for orders.
+  humanURL: https://www.bjs.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/bjs-wholesale-club-orders-api-openapi.yml
+  - type: Documentation
+    url: https://www.bjs.com
+  - type: JSONSchema
+    url: json-schema/bjs-product-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-membership-schema.json
+  - type: JSONSchema
+    url: json-schema/bjs-order-schema.json
+  - type: JSONStructure
+    url: json-structure/bjs-product-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-membership-structure.json
+  - type: JSONStructure
+    url: json-structure/bjs-order-structure.json
+  - type: JSONLD
+    url: json-ld/bjs-context.jsonld
+  - type: Examples
+    url: examples/bjs-product-example.json
+  - type: Examples
+    url: examples/bjs-membership-example.json
+  - type: Examples
+    url: examples/bjs-order-example.json
+  - type: PrivacyPolicy
+    url: https://www.bjs.com/content/privacy-policy
+  - type: TermsOfService
+    url: https://www.bjs.com/content/terms-and-conditions
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-clubs.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-inventory.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-membership.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-orders.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/bjs-wholesale-club-products.yaml
+- aid: bjs-wholesale-club:bjs-wholesale-club-products-api
+  name: BJ's Wholesale Club Products API
+  description: The Products API from BJ's Wholesale Club — 2 operation(s) for products.
+  humanURL: https://www.bjs.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/bjs-wholesale-club-products-api-openapi.yml
+  - type: Documentation
+    url: https://www.bjs.com
   - type: JSONSchema
     url: json-schema/bjs-product-schema.json
   - type: JSONSchema
