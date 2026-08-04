@@ -1,0 +1,22 @@
+{
+  "provider": "bjs-wholesale-club",
+  "sources": [
+    "bjs-wholesale-club-clubs-api-openapi.yml",
+    "bjs-wholesale-club-inventory-api-openapi.yml",
+    "bjs-wholesale-club-membership-api-openapi.yml",
+    "bjs-wholesale-club-orders-api-openapi.yml",
+    "bjs-wholesale-club-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "bjs-wholesale-club-clubs-api-openapi.yml",
+    "bjs-wholesale-club-inventory-api-openapi.yml",
+    "bjs-wholesale-club-membership-api-openapi.yml",
+    "bjs-wholesale-club-orders-api-openapi.yml",
+    "bjs-wholesale-club-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
