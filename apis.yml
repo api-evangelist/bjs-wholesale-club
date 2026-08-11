@@ -64,16 +64,6 @@ apis:
     url: https://www.bjs.com/content/privacy-policy
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-clubs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-inventory.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-membership.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-orders.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-products.yaml
 - aid: bjs-wholesale-club:bjs-wholesale-club-inventory-api
   name: BJ's Wholesale Club Inventory API
   description: The Inventory API from BJ's Wholesale Club — 1 operation(s) for inventory.
@@ -109,16 +99,6 @@ apis:
     url: https://www.bjs.com/content/privacy-policy
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-clubs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-inventory.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-membership.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-orders.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-products.yaml
 - aid: bjs-wholesale-club:bjs-wholesale-club-membership-api
   name: BJ's Wholesale Club Membership API
   description: The Membership API from BJ's Wholesale Club — 1 operation(s) for membership.
@@ -154,16 +134,6 @@ apis:
     url: https://www.bjs.com/content/privacy-policy
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-clubs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-inventory.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-membership.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-orders.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-products.yaml
 - aid: bjs-wholesale-club:bjs-wholesale-club-orders-api
   name: BJ's Wholesale Club Orders API
   description: The Orders API from BJ's Wholesale Club — 2 operation(s) for orders.
@@ -199,16 +169,6 @@ apis:
     url: https://www.bjs.com/content/privacy-policy
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-clubs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-inventory.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-membership.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-orders.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-products.yaml
 - aid: bjs-wholesale-club:bjs-wholesale-club-products-api
   name: BJ's Wholesale Club Products API
   description: The Products API from BJ's Wholesale Club — 2 operation(s) for products.
@@ -244,16 +204,6 @@ apis:
     url: https://www.bjs.com/content/privacy-policy
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-clubs.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-inventory.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-membership.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-orders.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/bjs-wholesale-club-products.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/bjs-wholesale-club-agentic-access.yml
