@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BJ's Wholesale Club Partner Clubs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clubs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Club Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bjs.com/v1/clubs",
+            "params": [
+              {
+                "name": "zip",
+                "value": "",
+                "type": "query",
+                "description": "Filter clubs by proximity to ZIP code"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Radius in miles for ZIP-based search"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-BJS-API-Key",
+              "value": "{{X-BJS-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of BJ's Wholesale Club locations with address and hours."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

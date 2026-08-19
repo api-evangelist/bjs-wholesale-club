@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BJ's Wholesale Club Partner Clubs Inventory API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Product Inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bjs.com/v1/products/:productId/inventory",
+            "params": [
+              {
+                "name": "productId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "clubId",
+                "value": "",
+                "type": "query",
+                "description": "Filter to a specific club location"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-BJS-API-Key",
+              "value": "{{X-BJS-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns inventory availability for a product across club locations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

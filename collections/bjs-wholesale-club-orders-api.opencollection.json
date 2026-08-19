@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BJ's Wholesale Club Partner Clubs Orders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.bjs.com/v1/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-BJS-API-Key",
+              "value": "{{X-BJS-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a new order through BJ's digital commerce platform."
+        },
+        {
+          "info": {
+            "name": "Get Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bjs.com/v1/orders/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-BJS-API-Key",
+              "value": "{{X-BJS-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns details and status for a specific order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

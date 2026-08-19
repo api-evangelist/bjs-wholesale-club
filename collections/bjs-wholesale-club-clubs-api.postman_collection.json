@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": "a398f67d-ceb5-4aac-b4c5-145457edecf4",
+      "name": "Clubs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1278e1cd-b726-4a5e-b354-8706062a6cc4",
+          "name": "List Club Locations",
+          "request": {
+            "name": "List Club Locations",
+            "description": {
+              "content": "Returns a list of BJ's Wholesale Club locations with address and hours.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "clubs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "zip",
+                  "value": "<string>",
+                  "description": "Filter clubs by proximity to ZIP code"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "25",
+                  "description": "Radius in miles for ZIP-based search"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-BJS-API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d78b625c-eecd-47ff-9fe3-7b54adb52c22",
+              "name": "List of club locations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "clubs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "zip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-BJS-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clubs\": [\n    {\n      \"clubId\": \"string\",\n      \"name\": \"string\",\n      \"address\": {\n        \"street1\": \"string\",\n        \"street2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"US\"\n      },\n      \"phone\": \"string\",\n      \"hours\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"services\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"clubId\": \"string\",\n      \"name\": \"string\",\n      \"address\": {\n        \"street1\": \"string\",\n        \"street2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"US\"\n      },\n      \"phone\": \"string\",\n      \"hours\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"services\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"total\": 6887\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.bjs.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6814c2ed-2876-487f-9a1d-b1ad5dc58fb3",
+    "name": "BJ's Wholesale Club Partner Clubs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.\n\nContact Support:\n Name: BJ's Wholesale Club Partner Support",
+      "type": "text/plain"
+    }
+  }
+}

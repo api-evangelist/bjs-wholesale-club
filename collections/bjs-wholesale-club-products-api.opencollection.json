@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BJ's Wholesale Club Partner Clubs Products API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bjs.com/v1/products",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Filter by category name or ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-BJS-API-Key",
+              "value": "{{X-BJS-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of products from the BJ's catalog."
+        },
+        {
+          "info": {
+            "name": "Get Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.bjs.com/v1/products/:productId",
+            "params": [
+              {
+                "name": "productId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-BJS-API-Key",
+              "value": "{{X-BJS-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns details for a specific product by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
