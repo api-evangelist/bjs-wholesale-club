@@ -6,6 +6,11 @@ description: BJ's Wholesale Club is a leading operator of membership warehouse c
   foods, groceries, household essentials, and general merchandise. The company operates over 230 clubs and is focused on digital
   transformation, offering APIs to partners for product data, inventory, pricing, and order management integrations.
 tags:
+- E-Commerce
+- Membership
+- Retail
+- Wholesale
+tags_raw:
 - Ecommerce
 - Membership
 - Retail
@@ -139,6 +144,8 @@ apis:
   description: The Orders API from BJ's Wholesale Club — 2 operation(s) for orders.
   humanURL: https://www.bjs.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -174,6 +181,8 @@ apis:
   description: The Products API from BJ's Wholesale Club — 2 operation(s) for products.
   humanURL: https://www.bjs.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
