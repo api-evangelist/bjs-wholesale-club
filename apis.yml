@@ -226,6 +226,9 @@ apis:
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
 common:
+- type: CapabilityMap
+  url: capabilities/bjs-wholesale-club-capability-edges.yml
+  name: BJ's Wholesale Club Business Capability Map
 - type: AgenticAccess
   url: agentic-access/bjs-wholesale-club-agentic-access.yml
 - type: DomainSecurity
