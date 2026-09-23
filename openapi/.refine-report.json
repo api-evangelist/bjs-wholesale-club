@@ -1,11 +1,7 @@
 {
   "provider": "bjs-wholesale-club",
   "sources": [
-    "bjs-wholesale-club-clubs-api-openapi.yml",
-    "bjs-wholesale-club-inventory-api-openapi.yml",
-    "bjs-wholesale-club-membership-api-openapi.yml",
-    "bjs-wholesale-club-orders-api-openapi.yml",
-    "bjs-wholesale-club-products-api-openapi.yml"
+    "_original/bjs-wholesale-club-openapi.yaml"
   ],
   "outputs": [
     "bjs-wholesale-club-clubs-api-openapi.yml",
@@ -17,6 +13,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bjs-wholesale-club-openapi.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "bjs-wholesale-club-openapi.yaml: declared missing tag: Clubs",
+    "bjs-wholesale-club-openapi.yaml: declared missing tag: Inventory",
+    "bjs-wholesale-club-openapi.yaml: declared missing tag: Membership",
+    "bjs-wholesale-club-openapi.yaml: declared missing tag: Orders",
+    "bjs-wholesale-club-openapi.yaml: declared missing tag: Products",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "bjs-wholesale-club-clubs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bjs-wholesale-club-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bjs-wholesale-club-membership-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bjs-wholesale-club-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bjs-wholesale-club-products-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

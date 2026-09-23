@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: BJ's Wholesale Club Partner Clubs Orders API
+  title: BJ's Wholesale Club Partner Orders API
   description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
   version: 1.0.0
   contact:
@@ -63,6 +63,47 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - confirmed
+          - processing
+          - shipped
+          - delivered
+          - cancelled
+        membershipNumber:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+              name:
+                type: string
+              quantity:
+                type: integer
+              unitPrice:
+                type: number
+        subtotal:
+          type: number
+        tax:
+          type: number
+        total:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+        estimatedDelivery:
+          type: string
+          format: date
     Address:
       type: object
       properties:
@@ -108,47 +149,6 @@ components:
         clubId:
           type: string
           description: Required for curbside_pickup and in_club fulfillment
-    Order:
-      type: object
-      properties:
-        orderId:
-          type: string
-        status:
-          type: string
-          enum:
-          - pending
-          - confirmed
-          - processing
-          - shipped
-          - delivered
-          - cancelled
-        membershipNumber:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              productId:
-                type: string
-              name:
-                type: string
-              quantity:
-                type: integer
-              unitPrice:
-                type: number
-        subtotal:
-          type: number
-        tax:
-          type: number
-        total:
-          type: number
-        createdAt:
-          type: string
-          format: date-time
-        estimatedDelivery:
-          type: string
-          format: date
   responses:
     BadRequest:
       description: Invalid request parameters

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: BJ's Wholesale Club Partner Clubs Products API
+  title: BJ's Wholesale Club Partner Products API
   description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
   version: 1.0.0
   contact:
@@ -73,25 +73,6 @@ paths:
       security:
       - ApiKeyAuth: []
 components:
-  responses:
-    Unauthorized:
-      description: API key missing or invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
   schemas:
     Product:
       type: object
@@ -145,6 +126,25 @@ components:
           type: integer
         limit:
           type: integer
+  responses:
+    Unauthorized:
+      description: API key missing or invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

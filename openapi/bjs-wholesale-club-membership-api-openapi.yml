@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: BJ's Wholesale Club Partner Clubs Membership API
+  title: BJ's Wholesale Club Partner Membership API
   description: BJ's Wholesale Club partner and affiliate integration API providing access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Available through BJ's partner program.
   version: 1.0.0
   contact:
