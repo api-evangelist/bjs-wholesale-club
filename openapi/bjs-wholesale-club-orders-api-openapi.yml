@@ -63,6 +63,35 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    OrderRequest:
+      type: object
+      required:
+      - membershipNumber
+      - items
+      - shippingAddress
+      properties:
+        membershipNumber:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+              quantity:
+                type: integer
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        fulfillmentMethod:
+          type: string
+          enum:
+          - ship
+          - curbside_pickup
+          - in_club
+        clubId:
+          type: string
+          description: Required for curbside_pickup and in_club fulfillment
     Order:
       type: object
       properties:
@@ -120,35 +149,6 @@ components:
         country:
           type: string
           default: US
-    OrderRequest:
-      type: object
-      required:
-      - membershipNumber
-      - items
-      - shippingAddress
-      properties:
-        membershipNumber:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              productId:
-                type: string
-              quantity:
-                type: integer
-        shippingAddress:
-          $ref: '#/components/schemas/Address'
-        fulfillmentMethod:
-          type: string
-          enum:
-          - ship
-          - curbside_pickup
-          - in_club
-        clubId:
-          type: string
-          description: Required for curbside_pickup and in_club fulfillment
   responses:
     BadRequest:
       description: Invalid request parameters

@@ -38,6 +38,16 @@ paths:
       security:
       - ApiKeyAuth: []
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   schemas:
     MembershipStatus:
       type: object
@@ -71,16 +81,6 @@ components:
           description: BJ's membership card number
         lastName:
           type: string
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
