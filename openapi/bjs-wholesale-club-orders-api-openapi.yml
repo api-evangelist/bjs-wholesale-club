@@ -92,6 +92,22 @@ components:
         clubId:
           type: string
           description: Required for curbside_pickup and in_club fulfillment
+    Address:
+      type: object
+      properties:
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+          default: US
     Order:
       type: object
       properties:
@@ -133,23 +149,16 @@ components:
         estimatedDelivery:
           type: string
           format: date
-    Address:
-      type: object
-      properties:
-        street1:
-          type: string
-        street2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-        country:
-          type: string
-          default: US
   responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
     BadRequest:
       description: Invalid request parameters
       content:
@@ -163,15 +172,6 @@ components:
                 type: array
                 items:
                   type: string
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
