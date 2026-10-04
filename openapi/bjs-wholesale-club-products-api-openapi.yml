@@ -73,6 +73,25 @@ paths:
       security:
       - ApiKeyAuth: []
 components:
+  responses:
+    Unauthorized:
+      description: API key missing or invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   schemas:
     Product:
       type: object
@@ -126,25 +145,6 @@ components:
           type: integer
         limit:
           type: integer
-  responses:
-    Unauthorized:
-      description: API key missing or invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

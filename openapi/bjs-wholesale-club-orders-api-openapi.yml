@@ -62,36 +62,30 @@ paths:
       security:
       - ApiKeyAuth: []
 components:
-  schemas:
-    OrderRequest:
-      type: object
-      required:
-      - membershipNumber
-      - items
-      - shippingAddress
-      properties:
-        membershipNumber:
-          type: string
-        items:
-          type: array
-          items:
+  responses:
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
             type: object
             properties:
-              productId:
+              error:
                 type: string
-              quantity:
-                type: integer
-        shippingAddress:
-          $ref: '#/components/schemas/Address'
-        fulfillmentMethod:
-          type: string
-          enum:
-          - ship
-          - curbside_pickup
-          - in_club
-        clubId:
-          type: string
-          description: Required for curbside_pickup and in_club fulfillment
+              details:
+                type: array
+                items:
+                  type: string
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  schemas:
     Address:
       type: object
       properties:
@@ -149,29 +143,35 @@ components:
         estimatedDelivery:
           type: string
           format: date
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
+    OrderRequest:
+      type: object
+      required:
+      - membershipNumber
+      - items
+      - shippingAddress
+      properties:
+        membershipNumber:
+          type: string
+        items:
+          type: array
+          items:
             type: object
             properties:
-              error:
+              productId:
                 type: string
-    BadRequest:
-      description: Invalid request parameters
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-              details:
-                type: array
-                items:
-                  type: string
+              quantity:
+                type: integer
+        shippingAddress:
+          $ref: '#/components/schemas/Address'
+        fulfillmentMethod:
+          type: string
+          enum:
+          - ship
+          - curbside_pickup
+          - in_club
+        clubId:
+          type: string
+          description: Required for curbside_pickup and in_club fulfillment
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

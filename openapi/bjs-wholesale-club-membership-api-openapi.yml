@@ -39,16 +39,6 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
-    MembershipVerifyRequest:
-      type: object
-      required:
-      - membershipNumber
-      properties:
-        membershipNumber:
-          type: string
-          description: BJ's membership card number
-        lastName:
-          type: string
     MembershipStatus:
       type: object
       properties:
@@ -70,6 +60,16 @@ components:
           type: string
           format: date
         primaryMember:
+          type: string
+    MembershipVerifyRequest:
+      type: object
+      required:
+      - membershipNumber
+      properties:
+        membershipNumber:
+          type: string
+          description: BJ's membership card number
+        lastName:
           type: string
   responses:
     NotFound:

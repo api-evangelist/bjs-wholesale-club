@@ -43,6 +43,15 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
+    ClubList:
+      type: object
+      properties:
+        clubs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Club'
+        total:
+          type: integer
     Club:
       type: object
       properties:
@@ -63,15 +72,6 @@ components:
           items:
             type: string
           description: Services available (e.g., optical, tire center, gas station)
-    ClubList:
-      type: object
-      properties:
-        clubs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Club'
-        total:
-          type: integer
     Address:
       type: object
       properties:
