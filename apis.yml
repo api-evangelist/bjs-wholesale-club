@@ -227,6 +227,12 @@ apis:
   - type: TermsOfService
     url: https://www.bjs.com/content/terms-and-conditions
 common:
+- type: Plans
+  url: plans/bjs-wholesale-club-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/bjs-wholesale-club-rate-limits.yml
+- type: FinOps
+  url: finops/bjs-wholesale-club-finops.yml
 - type: CapabilityMap
   url: capabilities/bjs-wholesale-club-capability-edges.yml
   name: BJ's Wholesale Club Business Capability Map
