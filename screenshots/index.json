@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "bjs-wholesale-club",
+    "captured_at": "2026-10-11T183857",
+    "source_url": "https://www.bjs.com",
+    "source_type": "Website",
+    "file": "bjs-wholesale-club-2026-10-11T183857.png",
+    "bytes": 25224,
+    "capture": "playwright-local"
+  }
+]
