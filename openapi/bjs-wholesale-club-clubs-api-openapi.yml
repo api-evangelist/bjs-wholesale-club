@@ -43,15 +43,6 @@ paths:
       - ApiKeyAuth: []
 components:
   schemas:
-    ClubList:
-      type: object
-      properties:
-        clubs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Club'
-        total:
-          type: integer
     Club:
       type: object
       properties:
@@ -88,6 +79,15 @@ components:
         country:
           type: string
           default: US
+    ClubList:
+      type: object
+      properties:
+        clubs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Club'
+        total:
+          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
