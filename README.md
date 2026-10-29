@@ -1,4 +1,4 @@
-# BJ's Wholesale Club (bjs-wholesale-club)
+# BJ's Wholesale Club
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,86 +66,169 @@
 
 BJ's Wholesale Club is a leading operator of membership warehouse clubs concentrated primarily on the eastern half of the United States. BJ's offers its members significant savings on a wide assortment of merchandise, including fresh foods, groceries, household essentials, and general merchandise. The company operates over 230 clubs and is focused on digital transformation, offering APIs to partners for product data, inventory, pricing, and order management integrations.
 
-**URL:** [https://www.bjs.com](https://www.bjs.com)
+**Areas:** E-Commerce · Membership · Retail · Wholesale
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## BJ's Wholesale Club on APIs.io
 
-## Tags:
+Everything profiled for BJ's Wholesale Club is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bjs-wholesale-club/](https://apis.io/providers/bjs-wholesale-club/)** — or go straight to one of the APIs or properties below.
 
- - Ecommerce, Membership, Retail, Wholesale
+### APIs (5)
 
-## Timestamps
+- [BJ's Wholesale Club Clubs API](https://apis.io/apis/bjs-wholesale-club/bjs-wholesale-club-clubs-api/) — The Clubs API from BJ's Wholesale Club — 1 operation(s) for clubs.
+- [BJ's Wholesale Club Inventory API](https://apis.io/apis/bjs-wholesale-club/bjs-wholesale-club-inventory-api/) — The Inventory API from BJ's Wholesale Club — 1 operation(s) for inventory.
+- [BJ's Wholesale Club Membership API](https://apis.io/apis/bjs-wholesale-club/bjs-wholesale-club-membership-api/) — The Membership API from BJ's Wholesale Club — 1 operation(s) for membership.
+- [BJ's Wholesale Club Orders API](https://apis.io/apis/bjs-wholesale-club/bjs-wholesale-club-orders-api/) — The Orders API from BJ's Wholesale Club — 2 operation(s) for orders.
+- [BJ's Wholesale Club Products API](https://apis.io/apis/bjs-wholesale-club/bjs-wholesale-club-products-api/) — The Products API from BJ's Wholesale Club — 2 operation(s) for products.
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-04-21
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### BJ's Wholesale Club API
-BJ's Wholesale Club provides partner and affiliate integrations enabling access to product catalog, pricing, inventory availability, membership verification, and order management capabilities. Integrations are available through their partner program and digital commerce platform.
+#### Agentic access (1)
 
-**Human URL:** [https://www.bjs.com](https://www.bjs.com)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Bjs Wholesale Club Agentic Access](https://apis.io/agentic-access/bjs-wholesale-club/bjs-wholesale-club-agentic-access/)
 
- - Ecommerce, Membership, Retail, Wholesale
+#### JSON Schema (3)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://www.bjs.com)
-- [OpenAPI](openapi/bjs-wholesale-club-openapi.yaml)
-- [JSON Schema - Product](json-schema/bjs-product-schema.json)
-- [JSON Schema - Membership](json-schema/bjs-membership-schema.json)
-- [JSON Schema - Order](json-schema/bjs-order-schema.json)
-- [JSON-LD Context](json-ld/bjs-context.jsonld)
-- [Example - Product](examples/bjs-product-example.json)
-- [Example - Membership](examples/bjs-membership-example.json)
-- [Example - Order](examples/bjs-order-example.json)
-- [Privacy Policy](https://www.bjs.com/content/privacy-policy)
-- [Terms of Service](https://www.bjs.com/content/terms-and-conditions)
+- [BJS Membership](https://apis.io/schemas/bjs-wholesale-club/bjs-membership/)
+- [BJS Order](https://apis.io/schemas/bjs-wholesale-club/bjs-order/)
+- [BJS Product](https://apis.io/schemas/bjs-wholesale-club/bjs-product/)
 
-## Common Properties
+#### JSON Structure (3)
+
+Data models expressed in JSON Structure.
+
+- [Bjs Membership Structure](https://apis.io/json-structure/bjs-wholesale-club/bjs-membership-structure/)
+- [Bjs Order Structure](https://apis.io/json-structure/bjs-wholesale-club/bjs-order-structure/)
+- [Bjs Product Structure](https://apis.io/json-structure/bjs-wholesale-club/bjs-product-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Bjs Context](https://apis.io/jsonld/bjs-wholesale-club/bjs-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [BJ's Wholesale Club API Vocabulary](https://apis.io/vocabularies/bjs-wholesale-club/bjs-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Bjs Membership Example](https://apis.io/examples/bjs-wholesale-club/bjs-membership-example/)
+- [Bjs Order Example](https://apis.io/examples/bjs-wholesale-club/bjs-order-example/)
+- [Bjs Product Example](https://apis.io/examples/bjs-wholesale-club/bjs-product-example/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [BJ's Wholesale Club Partner Clubs API](https://apis.io/collections/bjs-wholesale-club/open-bjs-wholesale-club-clubs-api/)
+- [BJ's Wholesale Club Partner Clubs Inventory API](https://apis.io/collections/bjs-wholesale-club/open-bjs-wholesale-club-inventory-api/)
+- [BJ's Wholesale Club Partner Clubs Membership API](https://apis.io/collections/bjs-wholesale-club/open-bjs-wholesale-club-membership-api/)
+- [BJ's Wholesale Club Partner Clubs Orders API](https://apis.io/collections/bjs-wholesale-club/open-bjs-wholesale-club-orders-api/)
+- [BJ's Wholesale Club Partner Clubs Products API](https://apis.io/collections/bjs-wholesale-club/open-bjs-wholesale-club-products-api/)
+
+#### Governance rules (3)
+
+Spectral rulesets for the provider's contracts.
+
+- [BJ's Wholesale Club — bjs rules](https://apis.io/rules/bjs-wholesale-club/bjs-spectral-rules/)
+- [BJ's Wholesale Club — jsonschema rules](https://apis.io/rules/bjs-wholesale-club/bjs-wholesale-club-jsonschema-spectral-rules/)
+- [BJ's Wholesale Club API Rules](https://apis.io/rules/bjs-wholesale-club/bjs-wholesale-club-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bjs Wholesale Club Authentication](https://apis.io/security/bjs-wholesale-club/bjs-wholesale-club-authentication/)
+- [Bjs Wholesale Club Domain Security](https://apis.io/security/bjs-wholesale-club/bjs-wholesale-club-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Bjs Wholesale Club Plans Pricing](https://apis.io/plans/bjs-wholesale-club/bjs-wholesale-club-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Bjs Wholesale Club Rate Limits](https://apis.io/rate-limits/bjs-wholesale-club/bjs-wholesale-club-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Bjs Wholesale Club Finops](https://apis.io/finops/bjs-wholesale-club/bjs-wholesale-club-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.bjs.com)
-- [Privacy Policy](https://www.bjs.com/content/privacy-policy)
-- [Terms of Service](https://www.bjs.com/content/terms-and-conditions)
-- [Sign Up](https://www.bjs.com/content/membership)
 - [Support](https://www.bjs.com/content/help-center)
-- [Spectral Rules](rules/bjs-spectral-rules.yml)
-- [Naftiko Capability](capabilities/bjs-wholesale-club.yaml)
-- [Vocabulary](vocabulary/bjs-vocabulary.yaml)
+- [Terms of service](https://www.bjs.com/content/terms-and-conditions)
+- [Privacy policy](https://www.bjs.com/content/privacy-policy)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Membership Management | Supports membership-based access model for in-club and online purchasing, including membership verification and renewal. |
-| Product Catalog | Broad product assortment including fresh foods, groceries, household essentials, electronics, and general merchandise available via digital commerce integrations. |
-| Digital Commerce | Online ordering and delivery capabilities integrating with BJ's digital platform for partner fulfillment and affiliate programs. |
-| Curbside Pickup | Buy Online, Pick Up In Club capabilities available through BJ's digital platform for member convenience. |
-| Inventory Availability | Real-time inventory status across BJ's club locations, supporting in-club and curbside pickup fulfillment routing. |
-| Club Locator | Find BJ's club locations by ZIP code with hours, services, and amenities including gas stations, optical, and tire centers. |
+**Kin Score 39.5** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 64.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 42.1 |
 
-| Name | Description |
-|------|-------------|
-| Affiliate Marketing | Partner programs enabling affiliate marketers to promote BJ's membership and products with commission-based compensation. |
-| Product Data Integration | Access product catalog and pricing data to enable comparison shopping and product listing integrations. |
-| Membership Verification | Verify BJ's membership status for partner benefits and co-branded programs. |
-| Order Management | Manage orders through BJ's digital commerce platform for dropship and fulfillment partnerships. |
-| Inventory Routing | Route orders to the nearest club with available inventory for curbside pickup or local delivery fulfillment. |
+**Agent readiness 20.2** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| Commission Junction | BJ's affiliate program is managed through CJ Affiliate (Commission Junction) for tracking and payments. |
-| Google Shopping | Product feeds integrated with Google Shopping for product discovery and advertising. |
-| Instacart | BJ's grocery delivery is available through the Instacart platform for same-day delivery to members. |
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bjs-wholesale-club/](https://apis.io/providers/bjs-wholesale-club/).
 
-**FN:** Kin Lane
+## How this profile is made
 
-**Email:** kin@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for BJ's Wholesale Club: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bjs-wholesale-club/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
